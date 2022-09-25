@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://xqqnuah0he0a"]
+
+[ext_resource type="PackedScene" uid="uid://jhbr7vasf6si" path="res://Scenes/Player.tscn" id="1_kdjqu"]
+[ext_resource type="Script" path="res://Scripts/CameraFollowPlayer.gd" id="2_kn0es"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_semwd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cujwd"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2oarq"]
+material = SubResource("StandardMaterial3D_cujwd")
+
+[sub_resource type="BoxMesh" id="BoxMesh_24131"]
+
+[node name="Test" type="Node3D"]
+
+[node name="walld2" type="StaticBody3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 1, 0, 3, 5)
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="walld2"]
+shape = SubResource("BoxShape3D_semwd")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="walld2"]
+mesh = SubResource("BoxMesh_2oarq")
+
+[node name="StaticBody3d" type="StaticBody3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="StaticBody3d"]
+mesh = SubResource("BoxMesh_2oarq")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="StaticBody3d"]
+shape = SubResource("BoxShape3D_semwd")
+
+[node name="CharacterBody3d" parent="." groups=["Player"] instance=ExtResource("1_kdjqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.07967e-05, 2.69303, -0.0085721)
+
+[node name="Camera3d" type="Camera3D" parent="."]
+transform = Transform3D(-3.58853e-08, -0.570986, 0.82096, -2.49586e-08, 0.82096, 0.570986, -1, -8.88178e-15, -4.37114e-08, 12.7432, 10.099, -1.80658e-07)
+fov = 37.8493
+script = ExtResource("2_kn0es")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.883, 0.999621, -2.613)
+mesh = SubResource("BoxMesh_24131")
+skeleton = NodePath("../CharacterBody3d")
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.406737, 0.913545, 0, -0.913545, -0.406737, 0, 0, 0)

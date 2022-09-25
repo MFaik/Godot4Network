@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://jhbr7vasf6si"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_xdnmh"]
+[ext_resource type="Script" path="res://Scripts/PlayerCameraRaycast.gd" id="2_g3i32"]
+[ext_resource type="PackedScene" uid="uid://dfgijcce26gts" path="res://Scenes/Fox.tscn" id="3_n5x4h"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dqrc2"]
+radius = 0.424854
+height = 1.27647
+
+[node name="CharacterBody3d" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_xdnmh")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.589, 0)
+shape = SubResource("CapsuleShape3D_dqrc2")
+
+[node name="CameraTarget" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
+
+[node name="CameraRaycast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+script = ExtResource("2_g3i32")
+
+[node name="Mesh" parent="." instance=ExtResource("3_n5x4h")]
