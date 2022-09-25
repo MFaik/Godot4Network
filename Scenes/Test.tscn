@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://xqqnuah0he0a"]
+[gd_scene load_steps=14 format=3 uid="uid://xqqnuah0he0a"]
 
 [ext_resource type="PackedScene" uid="uid://jhbr7vasf6si" path="res://Scenes/Player.tscn" id="1_kdjqu"]
 [ext_resource type="Script" path="res://Scripts/CameraFollowPlayer.gd" id="2_kn0es"]
@@ -12,6 +12,41 @@ albedo_color = Color(1, 0, 1, 1)
 material = SubResource("StandardMaterial3D_cujwd")
 
 [sub_resource type="BoxMesh" id="BoxMesh_24131"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o24qq"]
+animation = &"Fall"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dduyh"]
+animation = &"Fall"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rcjv6"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r1muq"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_btk5i"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_v65ek"]
+auto_triangles = false
+blend_point_0/node = SubResource("AnimationNodeAnimation_o24qq")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_dduyh")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_rcjv6")
+blend_point_2/pos = Vector2(0, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_r1muq")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_btk5i")
+blend_point_4/pos = Vector2(-1, 0)
+triangles = PackedInt32Array(0, 2, 3, 1, 2, 3, 0, 2, 4, 1, 2, 4)
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_so5wu"]
+graph_offset = Vector2(-329.556, 26.6111)
+nodes/movement/node = SubResource("AnimationNodeBlendSpace2D_v65ek")
+nodes/movement/position = Vector2(-120, 140)
+node_connections = [&"output", 0, &"movement"]
 
 [node name="Test" type="Node3D"]
 
@@ -48,3 +83,8 @@ skeleton = NodePath("../CharacterBody3d")
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.406737, 0.913545, 0, -0.913545, -0.406737, 0, 0, 0)
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_so5wu")
+anim_player = NodePath("../AnimationPlayer")
+parameters/movement/blend_position = Vector2(0, 0)

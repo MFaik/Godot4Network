@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_xdnmh"]
 [ext_resource type="Script" path="res://Scripts/PlayerCameraRaycast.gd" id="2_g3i32"]
-[ext_resource type="PackedScene" uid="uid://dfgijcce26gts" path="res://Scenes/Fox.tscn" id="3_n5x4h"]
+[ext_resource type="PackedScene" uid="uid://bxprcihlwbgqp" path="res://Scenes/FoxModel.tscn" id="3_1msji"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dqrc2"]
 radius = 0.424854
@@ -25,4 +25,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 script = ExtResource("2_g3i32")
 
-[node name="Mesh" parent="." instance=ExtResource("3_n5x4h")]
+[node name="Mesh" parent="." instance=ExtResource("3_1msji")]

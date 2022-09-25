@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://db8h0o7oay3hk"
+uid="uid://dymex4hqjg14g"
 path="res://.godot/imported/fox.glb-95f8b6aaa9d5e6cfc4169bc9e2542236.scn"
 
 [deps]
@@ -31,31 +31,37 @@ _subresources={
 "Attack": {
 "save_to_file/enabled": true,
 "save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "res://Animation/Player/Attack.res",
+"save_to_file/path": "res://Animations/Player/Attack.res",
 "settings/loop_mode": 0
 },
 "Fall": {
 "save_to_file/enabled": true,
-"save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://Animation/Player/Fall.res",
-"settings/loop_mode": 0
+"save_to_file/keep_custom_tracks": true,
+"save_to_file/path": "res://Animations/Player/Fall.res",
+"settings/loop_mode": 1
 },
 "Idle": {
 "save_to_file/enabled": true,
-"save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://Animation/Player/Idle.res",
-"settings/loop_mode": 0
+"save_to_file/keep_custom_tracks": true,
+"save_to_file/path": "res://Animations/Player/Idle.res",
+"settings/loop_mode": 1
 },
 "Jump": {
 "save_to_file/enabled": true,
-"save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://Animation/Player/Jump.res",
+"save_to_file/keep_custom_tracks": true,
+"save_to_file/path": "res://Animations/Player/Jump.res",
 "settings/loop_mode": 0
 },
 "Run": {
 "save_to_file/enabled": true,
-"save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "res://Animation/Player/Run.res",
+"save_to_file/keep_custom_tracks": true,
+"save_to_file/path": "res://Animations/Player/Run.res",
+"settings/loop_mode": 1
+},
+"ToucheGround": {
+"save_to_file/enabled": true,
+"save_to_file/keep_custom_tracks": true,
+"save_to_file/path": "res://Animations/Player/ToucheGround.res",
 "settings/loop_mode": 0
 }
 }
